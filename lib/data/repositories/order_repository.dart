@@ -27,8 +27,9 @@ class OrderRepository {
         await _client.get(ApiEndpoints.ordersByCustomer(customerId));
     final body = response.data as Map<String, dynamic>;
     final data = body['data'] as Map<String, dynamic>;
-    final list = data['orders'] as List;
-    return list
+    final raw = data['orders'];
+    if (raw is! List) return [];
+    return raw
         .map((e) => OrderModel.fromJson(e as Map<String, dynamic>))
         .toList();
   }

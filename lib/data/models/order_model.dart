@@ -22,11 +22,14 @@ class OrderItemModel {
       parsedPrice = double.tryParse(raw) ?? 0.0;
     }
 
+    final orderItem = json['OrderItem'] as Map<String, dynamic>?;
+    final quantity = orderItem?['quantity'] as int? ?? json['quantity'] as int? ?? 1;
+
     return OrderItemModel(
       id: json['id'] as int,
       name: json['name'] as String? ?? '',
       price: parsedPrice,
-      quantity: json['quantity'] as int? ?? 1,
+      quantity: quantity,
       observation: json['observation'] as String?,
     );
   }

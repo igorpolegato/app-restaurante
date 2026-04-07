@@ -25,11 +25,11 @@ class OrderProvider extends ChangeNotifier {
     notifyListeners();
 
     try {
-      final order = await _repo.createOrder(
+      await _repo.createOrder(
         customerId: customerId,
         items: items,
       );
-      _customerOrders.insert(0, order);
+      await loadCustomerOrders(customerId);
       _isSubmitting = false;
       notifyListeners();
       return true;

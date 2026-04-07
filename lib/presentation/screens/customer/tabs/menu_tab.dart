@@ -181,12 +181,14 @@ class _MenuTabState extends State<MenuTab> {
                               ProductDetailSheet.show(context, item),
                           onAdd: () {
                             context.read<CartProvider>().addItem(item);
-                            ScaffoldMessenger.of(context).showSnackBar(
+                            final messenger = ScaffoldMessenger.of(context);
+                            messenger.hideCurrentSnackBar();
+                            messenger.showSnackBar(
                               SnackBar(
-                                content:
-                                    Text('${item.name} adicionado!'),
+                                content: Text('${item.name} adicionado!'),
                                 backgroundColor: AppColors.brandBlack,
                                 behavior: SnackBarBehavior.floating,
+                                duration: const Duration(seconds: 2),
                                 action: SnackBarAction(
                                   label: 'Ver carrinho',
                                   textColor: AppColors.brandYellow,

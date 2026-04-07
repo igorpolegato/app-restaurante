@@ -43,11 +43,14 @@ class _ProductDetailSheetState extends State<ProductDetailSheet> {
               : _obsController.text.trim(),
         );
     Navigator.of(context).pop();
-    ScaffoldMessenger.of(context).showSnackBar(
+    final messenger = ScaffoldMessenger.of(context);
+    messenger.hideCurrentSnackBar();
+    messenger.showSnackBar(
       SnackBar(
         content: Text('${widget.item.name} adicionado ao carrinho'),
         backgroundColor: AppColors.brandBlack,
         behavior: SnackBarBehavior.floating,
+        duration: const Duration(seconds: 2),
       ),
     );
   }
