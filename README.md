@@ -29,7 +29,7 @@ Todos os itens relevantes devem aparecer com o símbolo `✓`. Os mais important
 
 ```bash
 git clone git@github.com:igorpolegato/app-restaurante.git
-cd app
+cd app-restaurante
 ```
 
 ---
