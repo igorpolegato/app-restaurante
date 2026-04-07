@@ -28,7 +28,7 @@ Todos os itens relevantes devem aparecer com o símbolo `✓`. Os mais important
 ## 1. Clonar o repositório
 
 ```bash
-git clone <url-do-repositorio>
+git clone git@github.com:igorpolegato/app-restaurante.git
 cd app
 ```
 
